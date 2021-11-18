@@ -1,0 +1,1 @@
+# Génération d'une chaine aléatoire 
