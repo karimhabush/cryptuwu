@@ -10,21 +10,42 @@ pad = lambda s: s + (BLOCK_SIZE - len(s) % BLOCK_SIZE) * \
                 chr(BLOCK_SIZE - len(s) % BLOCK_SIZE)
 unpad = lambda s: s[:-ord(s[len(s) - 1:])]
 
-def encrypt(raw):
-    password = input('Password..: ')
-    key = md5(password.encode('utf8')).hexdigest()
-    raw = pad(raw)
-    cipher = AES.new(key.encode("utf8"), AES.MODE_ECB)
-    return b64encode(cipher.encrypt(raw.encode('utf8')))
+def output_file(output,filepath):
+    try : 
+        outputf=filepath+".enc"
+        f_output = open(outputf,"w")
+        f_output.write(output("utf-8"))
+        f_output.close()
+    except Exception as e: 
+        print(str(e))
 
-def decrypt(enc):
-    password = input('Password..: ')
-    key = md5(password.encode('utf8')).hexdigest()
-    enc = b64decode(enc)
-    cipher = AES.new(key.encode("utf8"), AES.MODE_ECB)
-    return unpad(cipher.decrypt(enc)).decode('utf8')
+def encrypt(filepath):
+    try:
+        password = input('Password..: ')
+        key = md5(password.encode('utf8')).hexdigest()
+        f_input = open(filepath, 'rb') #open binary file in read mode
+        raw = f_input.read()
+        raw = pad(raw.decode('utf8'))
+        cipher = AES.new(key.encode("utf8"), AES.MODE_ECB)
+        f_output = open(filepath+".enc","w")
+        f_output.write(b64encode(cipher.encrypt(raw.encode('utf8'))).decode("utf-8"))
+        f_input.close()
+        f_output.close()
+    except Exception as e: 
+        print(str(e))
 
+def decrypt(filepath):
+    try:
+        password = input('Password..: ')
+        key = md5(password.encode('utf8')).hexdigest()
+        f_input = open(filepath, 'rb') #open binary file in read mode
+        enc = f_input.read()
+        enc = b64decode(enc)
+        cipher = AES.new(key.encode("utf8"), AES.MODE_ECB)
+        out = unpad(cipher.decrypt(enc)).decode('utf8')
+        f_output = open(filepath+".dec","w")
+        f_output.write(out)
+    except Exception as e:
+        print(str(e))
 
-
-msg = input('Message...: ')
-print(encrypt(msg))
+decrypt('test.txt.enc')

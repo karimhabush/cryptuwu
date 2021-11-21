@@ -13,7 +13,7 @@ def encode_base64(filepath):
         f_output.close()
     except Exception as e: 
         print(str(e))
-        print(filepath)
+
 
 def decode_base64(filepath):
     try :
@@ -21,8 +21,7 @@ def decode_base64(filepath):
         f_read = f_input.read()
         f_decode = base64.b64decode(f_read)
         f_output = open(filepath+".dec","wb")
-        f_output.write(f_decode)
-        
+        f_output.write(f_decode) 
         f_input.close()
         f_output.close()
     except Exception as e: 
