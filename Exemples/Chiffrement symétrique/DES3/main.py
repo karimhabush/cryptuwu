@@ -19,7 +19,7 @@ def encrypt(filepath):
         ciphertext = cipher.encrypt(f_read)
         f_output_enc = open(filepath+".enc","w")
         f_output_nonce = open("nonce","wb")
-        f_output_key = open("key","wb")
+        f_output_key = open("keytest.key","wb")
 
         f_output_enc.write(b64encode(ciphertext).decode("utf8"))
         f_output_nonce.write(nonce)
@@ -54,4 +54,4 @@ def decrypt(cipherfile,nonce,key):
 
 
 encrypt("./test.txt")
-decrypt("./test.txt.enc","./nonce","./key")
+decrypt("./test.txt.enc","./nonce","./keytest.key")

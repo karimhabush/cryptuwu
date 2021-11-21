@@ -1,6 +1,7 @@
 import  base64
 from typing import ByteString
 from Crypto.Random import get_random_bytes
+
 def randgen(numbytes,algo):
     key = get_random_bytes(numbytes) # generate a random kay of numbytes bytes
     if algo=='base64':
@@ -9,3 +10,4 @@ def randgen(numbytes,algo):
         return key.hex()
     else:
         return 'error : unexistant algorithm'
+
