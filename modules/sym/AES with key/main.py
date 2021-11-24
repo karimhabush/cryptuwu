@@ -43,4 +43,3 @@ def decrypt(filepath,keypath):
     except Exception as e:
         print(str(e))
 
-decrypt('test.txt.enc','keytest.key')
