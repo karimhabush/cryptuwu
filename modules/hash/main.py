@@ -43,6 +43,3 @@ def md2(filepath):
     h.update(f_read)
     print(h.hexdigest())
     f_input.close()
-
-
-md2("./test.txt")
