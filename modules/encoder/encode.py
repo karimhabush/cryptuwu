@@ -27,5 +27,4 @@ def decode_base64(filepath):
     except Exception as e: 
         print(str(e))
 
-decode_base64("./test.txt.enc")
     
