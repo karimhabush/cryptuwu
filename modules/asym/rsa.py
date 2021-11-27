@@ -31,5 +31,3 @@ def rsa_decrypt(filepath,priv_path):
         file_out.write(output)
     except Exception as e:
         print(str(e))
-
-rsa_decrypt('rsaenc.enc','private.pem')

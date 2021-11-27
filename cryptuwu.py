@@ -5,8 +5,9 @@ from modules.asym.rsa import rsa_decrypt, rsa_encrypt
 from modules.rand.random import randgen
 from modules.hash.hash import sha224, sha256, sha512, md2, md5
 from modules.encoder.encode import encode_base64, decode_base64
-from modules.sym import aes, key_aes
+from modules.sym import aes, key_aes, des3
 from modules.keygen import generate
+
 def main():
     parser = argparse.ArgumentParser(description='add, modify and delete upstream nodes')
     parser.add_argument(
@@ -29,6 +30,8 @@ def main():
         '-o', '--output', type=str, help='Choose an input file')
     parser.add_argument(
         '-k', '--key', type=str, help='Choose an input file')
+    parser.add_argument(
+        '-n', '--nonce', type=str, help='Choose an input file')
     parser.add_argument(
         '-e','--encode',type=int, help='Encode file.')
     parser.add_argument(
@@ -71,7 +74,20 @@ def main():
                     aes.decrypt(args.input)
                 else : 
                     key_aes.decrypt(args.input,args.key)
-    
+        if args.stype == "des3":
+            if args.do is None :
+                print("the parameter --do is required!")
+            elif args.do == "encrypt" : 
+                des3.encrypt(args.input)
+            elif args.do == "decrypt" : 
+                if args.key is None : 
+                    print("the parameter --key is required!")
+                elif args.nonce is None : 
+                    print("the parameter --nonce is required!")
+                else : 
+                    des3.decrypt(args.input,args.nonce, args.key)
+
+
     elif args.mod == "asym":
         if args.do is None : 
             print("the parameter --do is required!")
@@ -87,11 +103,12 @@ def main():
                 print("the parameter --key is required, please enter a valid private key path")
             else:
                 rsa_decrypt(args.input, args.key)
+        
 
-    elif args.mod == "keygen": 
-        if args.size is None : 
+    elif args.mod == "keygen":
+        if args.size is None :
             print("the parameter --size is required! [indicates size of the key. example : 2048]")
-        elif args.ktype is None : 
+        elif args.ktype is None :
             print("the parameter --ktype is required! [indicates type of the key. choices : rsa, dsa]")
         elif args.ktype == "rsa":
             generate.rsa_keypair(args.size)

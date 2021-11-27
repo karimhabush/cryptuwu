@@ -18,8 +18,8 @@ def encrypt(filepath):
         nonce = cipher.nonce
         ciphertext = cipher.encrypt(f_read)
         f_output_enc = open(filepath+".enc","w")
-        f_output_nonce = open("nonce","wb")
-        f_output_key = open("key","wb")
+        f_output_nonce = open("nonce.nonce","wb")
+        f_output_key = open("secret.key","wb")
 
         f_output_enc.write(b64encode(ciphertext).decode("utf8"))
         f_output_nonce.write(nonce)

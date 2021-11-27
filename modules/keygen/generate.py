@@ -1,5 +1,4 @@
-from Crypto.PublicKey import RSA
-from Crypto.PublicKey import DSA
+from Crypto.PublicKey import RSA,DSA
 
 
 def rsa_keypair(size):
@@ -21,4 +20,3 @@ def dsa_keypair(size):
     public_out.write(key.publickey().export_key())
     private_out.close()
     public_out.close()
-
