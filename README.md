@@ -32,7 +32,7 @@ PKIP supports the following modules, note that the options in the usage section 
 | ------ | ------ | 
 | [rand]() | Generates random base64/Hex encoded string of size -s bytes |
 | [keygen]() | Generates an RSA/DSA keypair of size -s bytes |
-| [sym]() | refers to symetric encryption, it supports AES and DES encryption/decryption|
+| [sym](https://github.com/karimhabush/pkip/blob/main/modules/asym/README.md) | refers to symetric encryption, it supports AES and DES encryption/decryption|
 | [asym]() | refers to symetric encryption, it supports RSA encryption/decryption |
 | [sign]() | create and verify DSA signatures |
 | [encoder]() | base64 encode files |
