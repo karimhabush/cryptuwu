@@ -35,5 +35,6 @@ python3 cryptuwu.py --stype des3 [options]
 | --do |mandatory| specify if it is an encryption or decryption [encrypt/decrypt]|
 |-i / --input |mandatory | specify an input file|
 | -k / --key |mandatory| specify a secret key file path |
-| -n / --nonce |mandatory in decryption| specify a nonce file path |
+| -n / --nonce |mandatory in decryption| specify a nonce file path 
+
 the output file will be **_input-file-name.enc_**
