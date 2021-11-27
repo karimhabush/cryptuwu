@@ -6,15 +6,6 @@ from base64 import b64decode
 from base64 import b64encode
 
 ############## SIGN ##########################
-# Create a new DSA key
-def dsa_keypair(private_path, public_path):
-    private_out = open(private_path,"wb")
-    public_out = open(public_path,"wb")
-    key = DSA.generate(2048)
-    private_out.write(key.export_key())
-    public_out.write(key.publickey().export_key())
-    private_out.close()
-    public_out.close()
 
 # Sign a message
 def dsa_sign(filepath,keypath):
