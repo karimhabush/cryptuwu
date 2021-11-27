@@ -22,7 +22,7 @@ def main():
     parser.add_argument(
         '--ktype', choices=['rsa', 'dsa'], help='select the type of Keypair you want to generate')
     parser.add_argument(
-        '--do', choices=['encrypt', 'decrypt', 'sign', 'verify'], help='select the type of encoding')
+        '--do', choices=['encrypt', 'decrypt', 'sign', 'verify', 'encode', 'decode'], help='select the type of encoding')
     parser.add_argument(
         '-s', '--size', type=int, help='select the size')
     parser.add_argument(
@@ -37,8 +37,10 @@ def main():
     args = parser.parse_args()
 
     if args.mod == "rand":
-        if args.input is None:
-            print("the parameter --input is required!")
+        if args.size is None:
+            print("the parameter --size is required!")
+        if args.type is None:
+            print("the parameter --type is required!")
         else :
             print(randgen(args.size,args.type))
 
@@ -57,9 +59,13 @@ def main():
             md5(args.input)
     
     elif args.mod == "encode":
-        if args.encode is not None : 
+        if args.input is None:
+            print("the parameter --input is required!")
+        if args.do is None : 
+             print("the parameter --do is required!")
+        elif args.do == 'encode':
             encode_base64(args.input)
-        elif args.decode is not None : 
+        elif args.do == 'decode' : 
             decode_base64(args.input)
 
     elif args.mod == "sym":
