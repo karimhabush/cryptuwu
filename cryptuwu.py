@@ -37,10 +37,15 @@ def main():
     args = parser.parse_args()
 
     if args.mod == "rand":
-        print(randgen(args.size,args.type))
+        if args.input is None:
+            print("the parameter --input is required!")
+        else :
+            print(randgen(args.size,args.type))
 
     elif args.mod == "hash":
-        if args.hash == 'sha224':
+        if args.input is None:
+            print("the parameter --input is required!")
+        elif args.hash == 'sha224':
             sha224(args.input)
         elif args.hash == 'sha256':
             sha256(args.input)
@@ -58,6 +63,8 @@ def main():
             decode_base64(args.input)
 
     elif args.mod == "sym":
+        if args.input is None:
+            print("the parameter --input is required!")
         if args.stype == "aes":
             if args.do is None :
                 print("the parameter --do is required!")
