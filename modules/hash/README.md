@@ -1,5 +1,5 @@
 # Hash
- _PKIP module for hashing files_
+ _cryptuwu module for hashing files_
 
 >It supports sha256, sha224, sha512, md2 and md5 hashing algorithms
 

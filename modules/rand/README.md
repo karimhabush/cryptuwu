@@ -1,5 +1,5 @@
 # Random
- _PKIP module for generating random strings_
+ _cryptuwu module for generating random strings_
 
 >It supports base64 and hex encoding
 

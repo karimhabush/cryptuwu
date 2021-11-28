@@ -1,5 +1,5 @@
 # Signatures
- _PKIP module for generating dsa signatures_
+ _cryptuwu module for generating dsa signatures_
 
 >It supports dsa signatures generation and verification
 

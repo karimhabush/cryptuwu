@@ -1,5 +1,5 @@
 # Symetric encryption
- _PKIP module for symetric encryption operations_
+ _cryptuwu module for symetric encryption operations_
 
 >It supports AES256/DES3 encryption and decryption 
 

@@ -1,5 +1,5 @@
 # Asymetric encryption
- _PKIP module for assymetric encryption operations_
+ _cryptuwu module for assymetric encryption operations_
 
 >It supports RSA encryption and decryption 
 

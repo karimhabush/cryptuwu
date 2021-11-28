@@ -1,5 +1,5 @@
 # Keypair Generation
- _PKIP module for generating keypairs s_
+ _cryptuwu module for generating keypairs s_
 
 >It supports RSA and DSA keypair generation
 
