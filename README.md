@@ -18,7 +18,7 @@ cryptuwu is a tool developped using python and pycryptodome used to implement ma
 
 ```sh
 pip install pycryptodome
-cd 
+cd cryptuwu
 ```
 then you can use cryptuwu using the script crypuwu.py
 ```sh
