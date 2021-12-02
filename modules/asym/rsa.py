@@ -9,7 +9,7 @@ def rsa_encrypt(filepath,publickey):
     try:
         f_input = open(filepath, 'rb') #open binary file in read mode
         raw = f_input.read()
-        file_out = open(filepath+"enc", "wb")
+        file_out = open(filepath+".enc", "wb")
         pubkey = RSA.import_key(open(publickey).read())
         # Encrypt the data with the public RSA key
         cipher_rsa = PKCS1_OAEP.new(pubkey)
@@ -21,7 +21,7 @@ def rsa_encrypt(filepath,publickey):
 def rsa_decrypt(filepath,priv_path):
     try:
         file_in = open(filepath, "rb")
-        file_out = open(filepath+"dec", "wb")
+        file_out = open(filepath+".dec", "wb")
         private_key = RSA.import_key(open(priv_path).read())
         ciphertext = file_in.read()
 

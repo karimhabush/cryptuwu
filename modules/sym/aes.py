@@ -2,7 +2,7 @@ from hashlib import md5, sha256
 from base64 import b64decode
 from base64 import b64encode
 from Crypto.Cipher import AES
-
+from getpass import getpass
 
 # Padding for the input string to fix block sizes to 16 bytes
 BLOCK_SIZE = 16  # Bytes
@@ -12,7 +12,7 @@ unpad = lambda s: s[:-ord(s[len(s) - 1:])]
 
 def encrypt(filepath):
     try:
-        password = input('Password..: ')
+        password = getpass('Password..: ')
         key = md5(password.encode('utf8')).hexdigest()
         f_input = open(filepath, 'rb') #open binary file in read mode
         raw = f_input.read()
@@ -29,7 +29,6 @@ def decrypt(filepath):
     try:
         password = input('Password..: ')
         key = md5(password.encode('utf8')).hexdigest()
-        print(key)
         f_input = open(filepath, 'rb') #open binary file in read mode
         enc = f_input.read()
         enc = b64decode(enc)
